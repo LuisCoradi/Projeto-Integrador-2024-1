@@ -30,8 +30,7 @@ public class Usuario {
     // Constructors
     public Usuario() {}
 
-    public Usuario(Long id, String nome, String email, String senha, Date dataCadastro, String informacoesPerfil) {
-        this.id = id;
+    public Usuario(String nome, String email, String senha, Date dataCadastro, String informacoesPerfil) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
