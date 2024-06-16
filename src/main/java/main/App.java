@@ -1,6 +1,7 @@
 package main;
 
 import view.LocalView;
+import view.MainFrame;
 import view.UsuarioView;
 import view.AdministradorView;
 import view.DestinoView;
@@ -8,6 +9,11 @@ import view.ReservaView;
 import view.ViagemView;
 
 import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class App {
 
@@ -21,7 +27,8 @@ public class App {
 
     public static void main(String[] args) {
         while (true) {
-            showMainMenu();
+            MainFrame mainMenu = new MainFrame();
+            mainMenu.setVisible(true);
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -51,15 +58,7 @@ public class App {
     }
 
     private static void showMainMenu() {
-        System.out.println("=== Menu Principal ===");
-        System.out.println("1. Gerenciar Usuarios");
-        System.out.println("2. Gerenciar Administradores");
-        System.out.println("3. Gerenciar Locais");
-        System.out.println("4. Gerenciar Destinos");
-        System.out.println("5. Gerenciar Reservas");
-        System.out.println("6. Gerenciar Viagens");
-        System.out.println("0. Sair");
-        System.out.print("Escolha uma opção: ");
+        
     }
 
     private static void showUsuarioMenu() {

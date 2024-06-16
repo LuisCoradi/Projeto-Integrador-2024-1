@@ -17,7 +17,10 @@ public class UsuarioView {
     }
 
     public void criarNovoUsuario() {
-        System.out.println("Digite o nome do usuário:");
+        
+    	
+    	
+    	System.out.println("Digite o nome do usuário:");
         String nome = scanner.nextLine();
 
         System.out.println("Digite o email do usuário:");
