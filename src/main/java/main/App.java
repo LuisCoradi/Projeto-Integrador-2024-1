@@ -8,6 +8,7 @@ import view.DestinoView;
 import view.ReservaView;
 import view.ViagemView;
 
+import java.awt.EventQueue;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -26,6 +27,16 @@ public class App {
     private static ViagemView viagemView = new ViagemView();
 
     public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MainFrame frame = new MainFrame();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         while (true) {
             MainFrame mainMenu = new MainFrame();
             mainMenu.setVisible(true);
