@@ -32,7 +32,7 @@ public class SubMenuUsuario extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(0, 0, 49));
+        contentPane.setBackground(new Color(7, 0, 43));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
         contentPane.setLayout(new GridLayout(0, 1, 0, 25));
@@ -45,10 +45,7 @@ public class SubMenuUsuario extends JFrame {
 
         JButton btnDeletarUsuario = new JButton("Deletar Usuario");
         contentPane.add(btnDeletarUsuario);
-
-        JButton btnVerUsuarioPorId = new JButton("Ver Usuario por ID");
-        contentPane.add(btnVerUsuarioPorId);
-
+        
         JButton btnVerTodosUsuarios = new JButton("Ver Todos Usuarios");
         contentPane.add(btnVerTodosUsuarios);
 

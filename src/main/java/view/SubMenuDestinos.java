@@ -16,7 +16,7 @@ public class SubMenuDestinos extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(0, 0, 49));
+        contentPane.setBackground(new Color(7, 0, 43));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
         contentPane.setLayout(new GridLayout(0, 1, 0, 25));
@@ -29,9 +29,6 @@ public class SubMenuDestinos extends JFrame {
 
         JButton btnDeletarDestino = new JButton("Deletar Destino");
         contentPane.add(btnDeletarDestino);
-
-        JButton btnVerDestinoPorId = new JButton("Ver Destino por ID");
-        contentPane.add(btnVerDestinoPorId);
 
         JButton btnVerTodosDestinos = new JButton("Ver Todos Destinos");
         contentPane.add(btnVerTodosDestinos);

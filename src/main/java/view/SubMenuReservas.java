@@ -16,7 +16,7 @@ public class SubMenuReservas extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(0, 0, 49));
+        contentPane.setBackground(new Color(7, 0, 43));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
         contentPane.setLayout(new GridLayout(0, 1, 0, 25));
@@ -29,9 +29,6 @@ public class SubMenuReservas extends JFrame {
 
         JButton btnDeletarReserva = new JButton("Deletar Reserva");
         contentPane.add(btnDeletarReserva);
-
-        JButton btnVerReservaPorId = new JButton("Ver Reserva por ID");
-        contentPane.add(btnVerReservaPorId);
 
         JButton btnVerTodasReservas = new JButton("Ver Todas Reservas");
         contentPane.add(btnVerTodasReservas);

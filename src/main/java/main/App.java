@@ -147,6 +147,7 @@ public class App {
     }
 
     private static void showLocalMenu() {
+    	/*
         while (true) {
             System.out.println("=== Menu Locais ===");
             System.out.println("1. Cadastrar Local");
@@ -181,6 +182,7 @@ public class App {
                     System.out.println("Opção inválida. Tente novamente.");
             }
         }
+        */
     }
 
     private static void showDestinoMenu() {
