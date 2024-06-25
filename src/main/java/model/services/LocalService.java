@@ -1,6 +1,11 @@
 package model.services;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.jxmapviewer.viewer.DefaultWaypoint;
+import org.jxmapviewer.viewer.GeoPosition;
+
 import model.entities.Local;
 import model.repositories.LocalRepository;
 
@@ -30,12 +35,13 @@ public class LocalService {
         }
     }
 
-    public Local updateLocal(Long id, String nomeLocal, String descricao, String localizacao, String fotoLocal, String avaliacao, String categoriaLocal) {
+    public Local updateLocal(Long id, String nomeLocal, String descricao, String latitudeY, String latitudeX, String fotoLocal, String avaliacao, String categoriaLocal) {
         Local local = localRepository.findById(id);
         if (local != null) {
             local.setNomeLocal(nomeLocal);
             local.setDescricao(descricao);
-            local.setLocalizacao(localizacao);
+            local.setLatitudeY(latitudeY);
+            local.setLatitudeX(latitudeX);
             local.setFotoLocal(fotoLocal);
             local.setAvaliacao(avaliacao);
             local.setCategoriaLocal(categoriaLocal);
@@ -43,4 +49,6 @@ public class LocalService {
         }
         return null;
     }
+   
+    
 }

@@ -16,9 +16,12 @@ public class Local {
     @Column(name = "descricao", columnDefinition = "MEDIUMTEXT", nullable = false)
     private String descricao;
 
-    @Column(name = "localizacao", nullable = false)
-    private String localizacao;
+    @Column(name = "latitude_y", nullable = false)
+    private String latitudeY;
 
+    @Column(name = "latitude_x", nullable = false)
+    private String latitudeX;
+    
     @Column(name = "foto_local", nullable = false)
     private String fotoLocal;
 
@@ -35,10 +38,11 @@ public class Local {
     // Constructors
     public Local() {}
 
-    public Local(String nomeLocal, String descricao, String localizacao, String fotoLocal, String avaliacao, String categoriaLocal, Administrador administrador) {
+    public Local(String nomeLocal, String descricao, String latitudeX, String latitudeY, String fotoLocal, String avaliacao, String categoriaLocal, Administrador administrador) {
         this.nomeLocal = nomeLocal;
         this.descricao = descricao;
-        this.localizacao = localizacao;
+        this.latitudeX = latitudeX;
+        this.latitudeY = latitudeY;
         this.fotoLocal = fotoLocal;
         this.avaliacao = avaliacao;
         this.categoriaLocal = categoriaLocal;
@@ -68,14 +72,6 @@ public class Local {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
     }
 
     public String getFotoLocal() {
@@ -109,6 +105,22 @@ public class Local {
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
+    
+    public String getLatitudeY() {
+        return latitudeY;
+    }
+    
+    public void setLatitudeY(String latitude) {
+    	this.latitudeY = latitude;
+    }
+
+    public String getLatitudeX() {
+        return latitudeX;
+    }
+    
+    public void setLatitudeX(String latitude) {
+    	this.latitudeX = latitude;
+    }
 
     @Override
     public String toString() {
@@ -116,7 +128,8 @@ public class Local {
                 "id=" + id +
                 ", nomeLocal='" + nomeLocal + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", localizacao='" + localizacao + '\'' +
+                ", latitude='" + latitudeY + '\'' +
+                ", latitude='" + latitudeX + '\'' +
                 ", fotoLocal='" + fotoLocal + '\'' +
                 ", avaliacao='" + avaliacao + '\'' +
                 ", categoriaLocal='" + categoriaLocal + '\'' +
