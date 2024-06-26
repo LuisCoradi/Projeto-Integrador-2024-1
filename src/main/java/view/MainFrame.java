@@ -28,11 +28,6 @@ public class MainFrame extends JFrame {
                                             CadastrarAdministradorFrame.class, AdministradorTab.class);
         tabbedPane.addTab("Admin", null, adminPanel, null);
 
-        // Aba de Usuários
-        JPanel userPanel = createTabPanel("Cadastrar Usuário", "Gerenciar Usuários", 
-                                           CadastrarUsuarioFrame.class, UsuarioTab.class);
-        tabbedPane.addTab("Usuários", null, userPanel, null);
-
         // Aba de Locais
         JPanel localPanel = createTabPanel("Cadastrar Local", "Gerenciar Locais", 
                                             CadastrarLocalFrame.class, LocalTab.class);
@@ -60,7 +55,7 @@ public class MainFrame extends JFrame {
         JPanel panel = new JPanel();
         panel.setBackground(new Color(0, 0, 49));
         panel.setBorder(new EmptyBorder(200, 200, 200, 200));
-        panel.setLayout(null); // Usando layout absoluto
+        panel.setLayout(null);
 
         JButton btnCadastrar = new JButton(cadastrarText);
         btnCadastrar.setBounds(66, 159, 395, 48);
@@ -69,7 +64,7 @@ public class MainFrame extends JFrame {
                 try {
                     JFrame frame = cadastrarFrameClass.getDeclaredConstructor(JFrame.class).newInstance(MainFrame.this);
                     frame.setVisible(true);
-                    setVisible(false); // Esconde a janela atual
+                    setVisible(false);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -84,7 +79,7 @@ public class MainFrame extends JFrame {
                 try {
                     JFrame frame = gerenciarFrameClass.getDeclaredConstructor().newInstance();
                     frame.setVisible(true);
-                    setVisible(false); // Esconde a janela atual
+                    setVisible(false);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

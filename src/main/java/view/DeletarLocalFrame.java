@@ -38,7 +38,7 @@ public class DeletarLocalFrame extends JFrame {
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(null); // Usando layout absoluto
+        contentPane.setLayout(null);
 
         JLabel lblId = new JLabel("ID:");
         lblId.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -117,7 +117,7 @@ public class DeletarLocalFrame extends JFrame {
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose(); // Fecha a janela atual
+                dispose();
             }
         });
     }
