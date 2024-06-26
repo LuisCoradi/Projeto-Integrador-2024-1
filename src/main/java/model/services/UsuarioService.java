@@ -46,13 +46,13 @@ public class UsuarioService {
         return null;
     }
     
-    public boolean verificarUsuario(String username, String senha) {
-    	List <Usuario> usuarios = usuarioRepository.findAll();
-    	for (Usuario usuario : usuarios) {
-            if(username == usuario.getNome() && senha == usuario.getSenha()) {
-            	return true;
+    public boolean verificarUsuario(String email, String senha) {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        for (Usuario usuario : usuarios) {
+            if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
+                return true;
             }
         }
-    	return false;
+        return false;
     }
 }

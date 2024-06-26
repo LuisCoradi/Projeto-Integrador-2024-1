@@ -27,8 +27,4 @@ public class LocalController {
     public Local updateLocal(Long id, String nomeLocal, String descricao, String latitudeY, String latitudeX, String fotoLocal, String avaliacao, String categoriaLocal) {
         return localService.updateLocal(id, nomeLocal, descricao, latitudeY, latitudeX, fotoLocal, avaliacao, categoriaLocal);
     }
-    
-
-    
 }
-

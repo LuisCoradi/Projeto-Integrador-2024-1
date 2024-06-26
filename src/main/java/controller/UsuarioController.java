@@ -28,7 +28,7 @@ public class UsuarioController {
         return usuarioService.updateUsuario(id, nome, email, senha, informacoesPerfil);
     }
     
-    public boolean verificarUsuario() {
-    	return usuarioService.verificarUsuario();
+    public boolean verificarUsuario(String email, String password) {
+    	return usuarioService.verificarUsuario(email, password);
     }
 }

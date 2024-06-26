@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import controller.UsuarioController;
 import view.MainFrame;
 import view.RegisterFrame;
+import view.SubMenuAdministradores;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
@@ -96,7 +97,7 @@ public class LoginFrame extends JFrame {
 		panel_1.add(passwordField);
 		
 		JButton loginButton = new JButton("Login");
-		loginButton.setBounds(20, 150, 100, 30);
+		loginButton.setBounds(20, 260, 100, 30);
 		panel.add(loginButton);
 		
 		JLabel registerLabel = new JLabel("Clique para se cadastrar");
@@ -116,7 +117,7 @@ public class LoginFrame extends JFrame {
 				
 				UsuarioController usuarioLista = new UsuarioController();
 				
-				if (usuarioLista.verificarUsuario()) {
+				if (usuarioLista.verificarUsuario(email, password)) {
 			        new MainFrame().setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Email ou senha inválidos.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -126,7 +127,7 @@ public class LoginFrame extends JFrame {
 		
 		registerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				new RegisterFrame().setVisible(true);
+				new RegisterFrame(LoginFrame.this).setVisible(true);
 			}
 		});
 	}

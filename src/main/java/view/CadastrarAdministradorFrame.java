@@ -2,56 +2,45 @@ package view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import model.entities.Administrador;
+import model.services.AdministradorService;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.awt.Font;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
+public class CadastrarAdministradorFrame extends JFrame {
 
-import controller.UsuarioController;
-import model.entities.Usuario;
-
-public class RegisterFrame extends JFrame {
-
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTextField nomeField;
     private JTextField emailField;
     private JPasswordField senhaField;
-    private UsuarioController usuarioController = new UsuarioController();
-    private JTextField descricaoField;
-    Date dataAtual = new Date();//sim, date eh uma merda mas eh oq tem por hoje
-    
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegisterFrame frame = new RegisterFrame(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    private JTextField nivelPermissaoField;
+    private AdministradorService administradorService = new AdministradorService();
 
-	public RegisterFrame(JFrame parent) {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    CadastrarAdministradorFrame frame = new CadastrarAdministradorFrame(null);
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public CadastrarAdministradorFrame(JFrame parent) {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(null);
+        contentPane.setLayout(null); // Usando layout absoluto
 
         JLabel lblNome = new JLabel("Nome:");
         lblNome.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -80,23 +69,23 @@ public class RegisterFrame extends JFrame {
         lblSenha.setForeground(UIManager.getColor("Button.foreground"));
         lblSenha.setBounds(251, 270, 431, 27);
         contentPane.add(lblSenha);
-        
+
         senhaField = new JPasswordField();
         senhaField.setBounds(251, 300, 431, 27);
         contentPane.add(senhaField);
-        senhaField.setColumns(10);
 
-        JLabel lblDescricao = new JLabel("Se descreva:");
-        lblDescricao.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblDescricao.setForeground(UIManager.getColor("Button.foreground"));
-        lblDescricao.setBounds(251, 340, 431, 27);
-        contentPane.add(lblDescricao);
+        JLabel lblNivelPermissao = new JLabel("Nível de Permissão:");
+        lblNivelPermissao.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblNivelPermissao.setForeground(UIManager.getColor("Button.foreground"));
+        lblNivelPermissao.setBounds(251, 340, 431, 27);
+        contentPane.add(lblNivelPermissao);
 
-        descricaoField = new JTextField();
-        descricaoField.setBounds(251, 370, 431, 27);
-        contentPane.add(descricaoField);
+        nivelPermissaoField = new JTextField();
+        nivelPermissaoField.setBounds(251, 370, 431, 27);
+        contentPane.add(nivelPermissaoField);
+        nivelPermissaoField.setColumns(10);
 
-        JButton btnCadastrar = new JButton("Cadastrar-se");
+        JButton btnCadastrar = new JButton("Cadastrar Administrador");
         btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 13));
         btnCadastrar.setBounds(251, 420, 431, 27);
         contentPane.add(btnCadastrar);
@@ -106,16 +95,16 @@ public class RegisterFrame extends JFrame {
                 String nome = nomeField.getText();
                 String email = emailField.getText();
                 String senha = new String(senhaField.getPassword());
-                String descricao = new String(descricaoField.getText());
+                int nivelPermissao = Integer.parseInt(nivelPermissaoField.getText());
 
-                Usuario usuario = new Usuario(nome, email, senha, dataAtual, descricao);
-                usuarioController.create(usuario);
-                JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
+                Administrador administrador = new Administrador(nome, email, senha, nivelPermissao);
+                administradorService.create(administrador);
+                JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
 
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose();
+                dispose(); // Fecha a janela atual
             }
         });
 
@@ -133,9 +122,8 @@ public class RegisterFrame extends JFrame {
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose();
+                dispose(); // Fecha a janela atual
             }
         });
-	}
-
+    }
 }
