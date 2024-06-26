@@ -51,13 +51,14 @@ public class LocalRepository implements BasicCrud {
         return em.createQuery("SELECT l FROM Local l", Local.class).getResultList();
     }
 
-    public Local update(Long id, String nomeLocal, String descricao, String localizacao, String fotoLocal, String avaliacao, String categoriaLocal) {
+    public Local update(Long id, String nomeLocal, String descricao, String latitudeY, String latitudeX, String fotoLocal, String avaliacao, String categoriaLocal) {
         Local local = findById(id);
         if (local != null) {
             em.getTransaction().begin();
             local.setNomeLocal(nomeLocal);
             local.setDescricao(descricao);
-            local.setLocalizacao(localizacao);
+            local.setLatitudeY(latitudeY);
+            local.setLatitudeX(latitudeX);
             local.setFotoLocal(fotoLocal);
             local.setAvaliacao(avaliacao);
             local.setCategoriaLocal(categoriaLocal);

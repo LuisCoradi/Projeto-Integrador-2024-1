@@ -24,8 +24,7 @@ public class LocalController {
         return localService.deletarLocal(id);
     }
 
-    public Local updateLocal(Long id, String nomeLocal, String descricao, String localizacao, String fotoLocal, String avaliacao, String categoriaLocal) {
-        return localService.updateLocal(id, nomeLocal, descricao, localizacao, fotoLocal, avaliacao, categoriaLocal);
+    public Local updateLocal(Long id, String nomeLocal, String descricao, String latitudeY, String latitudeX, String fotoLocal, String avaliacao, String categoriaLocal) {
+        return localService.updateLocal(id, nomeLocal, descricao, latitudeY, latitudeX, fotoLocal, avaliacao, categoriaLocal);
     }
 }
-

@@ -6,7 +6,7 @@ import controller.LocalController;
 import model.entities.Local;
 
 public class LocalView {
-
+/*
     private LocalController localController;
     private Scanner scanner;
 
@@ -122,4 +122,5 @@ public class LocalView {
             System.out.println("Local não encontrado ou atualização falhou.");
         }
     }
+    */
 }

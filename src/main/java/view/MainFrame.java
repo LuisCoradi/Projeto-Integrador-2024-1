@@ -1,3 +1,4 @@
+
 package view;
 
 import java.awt.EventQueue;
@@ -24,64 +25,71 @@ import java.awt.SystemColor;
 
 public class MainFrame extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    public MainFrame() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 947, 875);
+        contentPane = new JPanel();
+        contentPane.setBackground(new Color(0, 0, 49));
+        contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
+        setContentPane(contentPane);
+        contentPane.setLayout(new GridLayout(0, 1, 0, 25));
 
-	/**
-	 * Create the frame.
-	 */
-	public MainFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 947, 875);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 49));
-		contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
+        JButton btnGerenciarUsuarios = new JButton("Gerenciar Usuarios");
+        btnGerenciarUsuarios.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuUsuario(MainFrame.this).setVisible(true);
+                setVisible(false);
+            }
+        });
+        contentPane.add(btnGerenciarUsuarios);
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 1, 0, 25));
-		
-		JInternalFrame internalFrame = new JInternalFrame("New JInternalFrame");
-		contentPane.add(internalFrame);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new EmptyBorder(30, 15, 30, 15));
-		internalFrame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(0, 1, 0, 8));
-		
-		JButton btnNewButton_1 = new JButton("Gerenciar Usuarios");
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_3 = new JButton("Gerenciar Locais");
-		panel.add(btnNewButton_3);
-		
-		JButton btnNewButton_6 = new JButton("Gerenciar Viagens");
-		panel.add(btnNewButton_6);
-		
-		JButton btnNewButton_4 = new JButton("Gerenciar Destinos");
-		panel.add(btnNewButton_4);
-		
-		JButton btnNewButton_2 = new JButton("Gerenciar Administradores");
-		panel.add(btnNewButton_2);
-		
-		JButton btnNewButton_5 = new JButton("Gerenciar Reservas");
-		panel.add(btnNewButton_5);
-		internalFrame.setVisible(true);
-	}
+        JButton btnGerenciarLocais = new JButton("Gerenciar Locais");
+        btnGerenciarLocais.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuLocais(MainFrame.this).setVisible(true);
+                dispose(); // Fecha a janela atual
+            }
+        });
+        contentPane.add(btnGerenciarLocais);
 
+        JButton btnGerenciarViagens = new JButton("Gerenciar Viagens");
+        btnGerenciarViagens.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuViagens(MainFrame.this).setVisible(true);
+                dispose(); // Fecha a janela atual
+            }
+        });
+        contentPane.add(btnGerenciarViagens);
+
+        JButton btnGerenciarDestinos = new JButton("Gerenciar Destinos");
+        btnGerenciarDestinos.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuDestinos(MainFrame.this).setVisible(true);
+                dispose(); // Fecha a janela atual
+            }
+        });
+        contentPane.add(btnGerenciarDestinos);
+
+
+        JButton btnGerenciarAdministradores = new JButton("Gerenciar Administradores");
+        btnGerenciarAdministradores.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuAdministradores(MainFrame.this).setVisible(true);
+                dispose(); // Fecha a janela atual
+            }
+        });
+        contentPane.add(btnGerenciarAdministradores);
+
+        JButton btnGerenciarReservas = new JButton("Gerenciar Reservas");
+        btnGerenciarReservas.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubMenuReservas(MainFrame.this).setVisible(true);
+                dispose(); // Fecha a janela atual
+            }
+        });
+        contentPane.add(btnGerenciarReservas);
+    }
 }
