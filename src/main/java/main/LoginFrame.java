@@ -14,7 +14,6 @@ import javax.swing.border.EmptyBorder;
 import controller.UsuarioController;
 import view.MainFrame;
 import view.RegisterFrame;
-import view.SubMenuAdministradores;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;

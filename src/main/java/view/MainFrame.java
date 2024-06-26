@@ -1,27 +1,10 @@
-
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JSplitPane;
-import javax.swing.JButton;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import javax.swing.JInternalFrame;
-import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.SystemColor;
+import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 
@@ -35,61 +18,93 @@ public class MainFrame extends JFrame {
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(new GridLayout(0, 1, 0, 25));
+        contentPane.setLayout(new BorderLayout(0, 0));
 
-        JButton btnGerenciarUsuarios = new JButton("Gerenciar Usuarios");
-        btnGerenciarUsuarios.addActionListener(new ActionListener() {
+        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+        contentPane.add(tabbedPane, BorderLayout.CENTER);
+
+        // Aba de Administradores
+        JPanel adminPanel = createTabPanel("Cadastrar Administrador", "Gerenciar Administradores", 
+                                            CadastrarAdministradorFrame.class, AdministradorTab.class);
+        tabbedPane.addTab("Admin", null, adminPanel, null);
+
+        // Aba de Usuários
+        JPanel userPanel = createTabPanel("Cadastrar Usuário", "Gerenciar Usuários", 
+                                           CadastrarUsuarioFrame.class, UsuarioTab.class);
+        tabbedPane.addTab("Usuários", null, userPanel, null);
+
+        // Aba de Locais
+        JPanel localPanel = createTabPanel("Cadastrar Local", "Gerenciar Locais", 
+                                            CadastrarLocalFrame.class, LocalTab.class);
+        tabbedPane.addTab("Locais", null, localPanel, null);
+
+        // Aba de Viagens
+        JPanel viagemPanel = createTabPanel("Cadastrar Viagem", "Gerenciar Viagens", 
+                                             CadastrarViagemFrame.class, ViagemTab.class);
+        tabbedPane.addTab("Viagens", null, viagemPanel, null);
+
+        // Aba de Destinos
+        JPanel destinoPanel = createTabPanel("Cadastrar Destino", "Gerenciar Destinos", 
+                                              CadastrarDestinoFrame.class, DestinoTab.class);
+        tabbedPane.addTab("Destinos", null, destinoPanel, null);
+
+        // Aba de Reservas
+        JPanel reservaPanel = createTabPanel("Cadastrar Reserva", "Gerenciar Reservas", 
+                                              CadastrarReservaFrame.class, ReservaTab.class);
+        tabbedPane.addTab("Reservas", null, reservaPanel, null);
+    }
+
+    private JPanel createTabPanel(String cadastrarText, String gerenciarText, 
+                                  Class<? extends JFrame> cadastrarFrameClass, 
+                                  Class<? extends JFrame> gerenciarFrameClass) {
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(0, 0, 49));
+        panel.setBorder(new EmptyBorder(200, 200, 200, 200));
+        panel.setLayout(null); // Usando layout absoluto
+
+        JButton btnCadastrar = new JButton(cadastrarText);
+        btnCadastrar.setBounds(66, 159, 395, 48);
+        btnCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubMenuUsuario(MainFrame.this).setVisible(true);
-                setVisible(false);
+                try {
+                    JFrame frame = cadastrarFrameClass.getDeclaredConstructor(JFrame.class).newInstance(MainFrame.this);
+                    frame.setVisible(true);
+                    setVisible(false); // Esconde a janela atual
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
-        contentPane.add(btnGerenciarUsuarios);
+        panel.add(btnCadastrar);
 
-        JButton btnGerenciarLocais = new JButton("Gerenciar Locais");
-        btnGerenciarLocais.addActionListener(new ActionListener() {
+        JButton btnGerenciar = new JButton(gerenciarText);
+        btnGerenciar.setBounds(66, 234, 395, 48);
+        btnGerenciar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubMenuLocais(MainFrame.this).setVisible(true);
-                dispose(); // Fecha a janela atual
+                try {
+                    JFrame frame = gerenciarFrameClass.getDeclaredConstructor().newInstance();
+                    frame.setVisible(true);
+                    setVisible(false); // Esconde a janela atual
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
-        contentPane.add(btnGerenciarLocais);
+        panel.add(btnGerenciar);
 
-        JButton btnGerenciarViagens = new JButton("Gerenciar Viagens");
-        btnGerenciarViagens.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new SubMenuViagens(MainFrame.this).setVisible(true);
-                dispose(); // Fecha a janela atual
+        return panel;
+    }
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MainFrame frame = new MainFrame();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
-        contentPane.add(btnGerenciarViagens);
-
-        JButton btnGerenciarDestinos = new JButton("Gerenciar Destinos");
-        btnGerenciarDestinos.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new SubMenuDestinos(MainFrame.this).setVisible(true);
-                dispose(); // Fecha a janela atual
-            }
-        });
-        contentPane.add(btnGerenciarDestinos);
-
-
-        JButton btnGerenciarAdministradores = new JButton("Gerenciar Administradores");
-        btnGerenciarAdministradores.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new SubMenuAdministradores(MainFrame.this).setVisible(true);
-                dispose(); // Fecha a janela atual
-            }
-        });
-        contentPane.add(btnGerenciarAdministradores);
-
-        JButton btnGerenciarReservas = new JButton("Gerenciar Reservas");
-        btnGerenciarReservas.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new SubMenuReservas(MainFrame.this).setVisible(true);
-                dispose(); // Fecha a janela atual
-            }
-        });
-        contentPane.add(btnGerenciarReservas);
     }
 }

@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import model.entities.Administrador;
-import model.services.AdministradorService;
+import controller.AdministradorController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -18,7 +18,7 @@ public class CadastrarAdministradorFrame extends JFrame {
     private JTextField emailField;
     private JPasswordField senhaField;
     private JTextField nivelPermissaoField;
-    private AdministradorService administradorService = new AdministradorService();
+    private AdministradorController administradorController = new AdministradorController();
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -98,7 +98,7 @@ public class CadastrarAdministradorFrame extends JFrame {
                 int nivelPermissao = Integer.parseInt(nivelPermissaoField.getText());
 
                 Administrador administrador = new Administrador(nome, email, senha, nivelPermissao);
-                administradorService.create(administrador);
+                administradorController.create(administrador);
                 JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
 
                 if (parent != null) {
@@ -114,7 +114,7 @@ public class CadastrarAdministradorFrame extends JFrame {
         contentPane.add(btnVoltar);
         
         JPanel panel = new JPanel();
-        panel.setBounds(231, 130, 470, 384);
+        panel.setBounds(231, 112, 471, 404);
         contentPane.add(panel);
 
         btnVoltar.addActionListener(new ActionListener() {

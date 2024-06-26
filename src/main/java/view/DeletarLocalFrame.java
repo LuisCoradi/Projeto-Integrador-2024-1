@@ -107,6 +107,10 @@ public class DeletarLocalFrame extends JFrame {
         btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 13));
         btnVoltar.setBounds(329, 520, 275, 27);
         contentPane.add(btnVoltar);
+        
+        JPanel panel = new JPanel();
+        panel.setBounds(174, 31, 570, 555);
+        contentPane.add(panel);
 
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
