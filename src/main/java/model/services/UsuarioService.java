@@ -2,6 +2,8 @@ package model.services;
 
 import java.util.Date;
 import java.util.List;
+
+import model.entities.Local;
 import model.entities.Usuario;
 import model.repositories.UsuarioRepository;
 
@@ -42,5 +44,15 @@ public class UsuarioService {
             return usuarioRepository.updateById(usuario);
         }
         return null;
+    }
+    
+    public boolean verificarUsuario(String email, String senha) {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        for (Usuario usuario : usuarios) {
+            if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

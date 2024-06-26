@@ -2,6 +2,10 @@ package model.services;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jxmapviewer.viewer.DefaultWaypoint;
+import org.jxmapviewer.viewer.GeoPosition;
+
 import model.entities.Local;
 import model.repositories.LocalRepository;
 
@@ -45,5 +49,4 @@ public class LocalService {
         }
         return null;
     }
-
 }
