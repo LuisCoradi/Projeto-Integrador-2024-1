@@ -114,13 +114,14 @@ public class LocalView {
 
         System.out.println("Digite a nova categoria do local:");
         String categoriaLocal = scanner.nextLine();
-
+/*
         Local localAtualizado = localController.updateLocal(id, nomeLocal, descricao, localizacao, fotoLocal, avaliacao, categoriaLocal);
         if (localAtualizado != null) {
             System.out.println("Local atualizado com sucesso!");
         } else {
             System.out.println("Local não encontrado ou atualização falhou.");
         }
+        
     }
-    */
+  */
 }

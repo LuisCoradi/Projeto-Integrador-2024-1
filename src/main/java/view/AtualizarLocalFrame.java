@@ -168,10 +168,6 @@ public class AtualizarLocalFrame extends JFrame {
         btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 13));
         btnVoltar.setBounds(251, 650, 431, 27);
         contentPane.add(btnVoltar);
-        
-        JPanel panel = new JPanel();
-        panel.setBounds(230, 33, 474, 656);
-        contentPane.add(panel);
 
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

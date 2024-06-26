@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import model.entities.Local;
-import model.services.LocalService;
+import controller.LocalController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -15,7 +15,7 @@ public class LocalList extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private LocalService localService = new LocalService();
+    private LocalController localController = new LocalController();
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -42,7 +42,7 @@ public class LocalList extends JFrame {
         JLabel lblTitulo = new JLabel("Lista de Locais");
         lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 16));
         lblTitulo.setForeground(Color.WHITE);
-        lblTitulo.setBounds(403, 10, 126, 27);
+        lblTitulo.setBounds(361, 10, 210, 27);
         contentPane.add(lblTitulo);
 
         JTextArea textArea = new JTextArea();
@@ -54,7 +54,7 @@ public class LocalList extends JFrame {
         scrollPane.setBounds(10, 50, 911, 600);
         contentPane.add(scrollPane);
 
-        List<Local> locais = localService.findAll();
+        List<Local> locais = localController.findAll();
         for (Local local : locais) {
             textArea.append("ID: " + local.getId() + ", Nome: " + local.getNomeLocal() + ", Descrição: " + local.getDescricao() + ", Latitude Y: " + local.getLatitudeY() + ", Latitude X: " + local.getLatitudeX() + ", Foto: " + local.getFotoLocal() + ", Avaliação: " + local.getAvaliacao() + ", Categoria: " + local.getCategoriaLocal() + "\n");
             textArea.append("=========================================\n");

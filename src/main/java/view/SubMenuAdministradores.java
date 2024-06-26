@@ -21,7 +21,7 @@ public class SubMenuAdministradores extends JFrame {
         contentPane.setLayout(null); // Usando layout absoluto
 
         JButton btnCadastrarAdministrador = new JButton("Cadastrar Administrador");
-        btnCadastrarAdministrador.setBounds(196, 220, 533, 67);
+        btnCadastrarAdministrador.setBounds(251, 285, 431, 27);
         btnCadastrarAdministrador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new CadastrarAdministradorFrame(SubMenuAdministradores.this).setVisible(true);
@@ -30,38 +30,18 @@ public class SubMenuAdministradores extends JFrame {
         });
         contentPane.add(btnCadastrarAdministrador);
 
-        JButton btnAtualizarAdministrador = new JButton("Atualizar Administrador");
-        btnAtualizarAdministrador.setBounds(196, 297, 533, 67);
-        btnAtualizarAdministrador.addActionListener(new ActionListener() {
+        JButton btnGerenciarAdministrador = new JButton("Gerenciar Administradores");
+        btnGerenciarAdministrador.setBounds(251, 325, 431, 27);
+        btnGerenciarAdministrador.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new AtualizarAdministradorFrame(SubMenuAdministradores.this).setVisible(true);
+                new AdministradorTab().setVisible(true);
                 setVisible(false); // Esconde a janela atual
             }
         });
-        contentPane.add(btnAtualizarAdministrador);
-
-        JButton btnDeletarAdministrador = new JButton("Deletar Administrador");
-        btnDeletarAdministrador.setBounds(196, 374, 533, 67);
-        btnDeletarAdministrador.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new DeletarAdministradorFrame(SubMenuAdministradores.this).setVisible(true);
-                setVisible(false); // Esconde a janela atual
-            }
-        });
-        contentPane.add(btnDeletarAdministrador);
-
-        JButton btnVerTodosAdministradores = new JButton("Ver Todos Administradores");
-        btnVerTodosAdministradores.setBounds(196, 451, 533, 67);
-        btnVerTodosAdministradores.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new AdministradorList(SubMenuAdministradores.this).setVisible(true);
-                setVisible(false); // Esconde a janela atual
-            }
-        });
-        contentPane.add(btnVerTodosAdministradores);
+        contentPane.add(btnGerenciarAdministrador);
 
         JButton btnVoltar = new JButton("Voltar ao Menu Principal");
-        btnVoltar.setBounds(196, 528, 533, 67);
+        btnVoltar.setBounds(251, 365, 431, 27);
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new MainFrame().setVisible(true);
@@ -71,3 +51,4 @@ public class SubMenuAdministradores extends JFrame {
         contentPane.add(btnVoltar);
     }
 }
+

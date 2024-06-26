@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +22,9 @@ public class Administrador {
 
     @Column(name = "nivelpermissao", nullable = false)
     private int nivelPermissao;
+    
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Local> locais;
 
     // Constructors
     public Administrador() {}
@@ -71,6 +75,14 @@ public class Administrador {
 
     public void setNivelPermissao(int nivelPermissao) {
         this.nivelPermissao = nivelPermissao;
+    }
+
+    public List<Local> getLocais() {
+        return locais;
+    }
+
+    public void setLocais(List<Local> locais) {
+        this.locais = locais;
     }
 
     @Override

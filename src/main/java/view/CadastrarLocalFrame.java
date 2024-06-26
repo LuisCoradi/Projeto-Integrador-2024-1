@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import model.entities.Local;
 import model.entities.Administrador;
-import model.services.LocalService;
+import controller.LocalController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -23,7 +23,7 @@ public class CadastrarLocalFrame extends JFrame {
     private JTextField avaliacaoField;
     private JTextField categoriaField;
     private JTextField administradorField;
-    private LocalService localService = new LocalService();
+    private LocalController localController = new LocalController();
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -154,7 +154,7 @@ public class CadastrarLocalFrame extends JFrame {
                 administrador.setId(administradorId);
 
                 Local local = new Local(nome, descricao, latitudeX, latitudeY, foto, avaliacao, categoria, administrador);
-                localService.create(local);
+                localController.create(local);
                 JOptionPane.showMessageDialog(null, "Local cadastrado com sucesso!");
 
                 if (parent != null) {
@@ -170,7 +170,7 @@ public class CadastrarLocalFrame extends JFrame {
         contentPane.add(btnVoltar);
         
         JPanel panel = new JPanel();
-        panel.setBounds(231, 50, 474, 653);
+        panel.setBounds(228, 50, 479, 649);
         contentPane.add(panel);
 
         btnVoltar.addActionListener(new ActionListener() {
