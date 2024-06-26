@@ -26,18 +26,6 @@ public class CadastrarViagemFrame extends JFrame {
     private JTextField destinoIdField;
     private ViagemController viagemController = new ViagemController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CadastrarViagemFrame frame = new CadastrarViagemFrame(null);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public CadastrarViagemFrame(JFrame parent) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

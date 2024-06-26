@@ -30,19 +30,7 @@ public class RegisterFrame extends JFrame {
     private UsuarioController usuarioController = new UsuarioController();
     private JTextField descricaoField;
     Date dataAtual = new Date();//sim, date eh uma merda mas eh oq tem por hoje
-    
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RegisterFrame frame = new RegisterFrame(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+   
 
 	public RegisterFrame(JFrame parent) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

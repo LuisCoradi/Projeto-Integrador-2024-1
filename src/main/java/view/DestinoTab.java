@@ -25,18 +25,6 @@ public class DestinoTab extends JFrame {
     private JTextArea textArea;
     private DestinoController destinoController = new DestinoController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DestinoTab frame = new DestinoTab();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public DestinoTab() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

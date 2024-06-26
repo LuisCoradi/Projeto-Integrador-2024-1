@@ -25,18 +25,6 @@ public class CadastrarLocalFrame extends JFrame {
     private JTextField administradorField;
     private LocalController localController = new LocalController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CadastrarLocalFrame frame = new CadastrarLocalFrame(null);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public CadastrarLocalFrame(JFrame parent) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

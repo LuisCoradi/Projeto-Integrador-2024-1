@@ -40,7 +40,7 @@ public class CadastrarAdministradorFrame extends JFrame {
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(null); // Usando layout absoluto
+        contentPane.setLayout(null); 
 
         JLabel lblNome = new JLabel("Nome:");
         lblNome.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -104,7 +104,7 @@ public class CadastrarAdministradorFrame extends JFrame {
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose(); // Fecha a janela atual
+                dispose(); 
             }
         });
 
@@ -122,7 +122,7 @@ public class CadastrarAdministradorFrame extends JFrame {
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose(); // Fecha a janela atual
+                dispose(); 
             }
         });
     }

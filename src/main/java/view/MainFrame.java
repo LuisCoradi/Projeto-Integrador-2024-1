@@ -1,94 +1,20 @@
 package view;
 
+import java.awt.Color;
+import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
+
+import utils.Map;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Font;
 
 public class MainFrame extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-
-    public MainFrame() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 947, 875);
-        contentPane = new JPanel();
-        contentPane.setBackground(new Color(0, 0, 49));
-        contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
-        setContentPane(contentPane);
-        contentPane.setLayout(new BorderLayout(0, 0));
-
-        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        contentPane.add(tabbedPane, BorderLayout.CENTER);
-
-        // Aba de Administradores
-        JPanel adminPanel = createTabPanel("Cadastrar Administrador", "Gerenciar Administradores", 
-                                            CadastrarAdministradorFrame.class, AdministradorTab.class);
-        tabbedPane.addTab("Admin", null, adminPanel, null);
-
-        // Aba de Locais
-        JPanel localPanel = createTabPanel("Cadastrar Local", "Gerenciar Locais", 
-                                            CadastrarLocalFrame.class, LocalTab.class);
-        tabbedPane.addTab("Locais", null, localPanel, null);
-
-        // Aba de Viagens
-        JPanel viagemPanel = createTabPanel("Cadastrar Viagem", "Gerenciar Viagens", 
-                                             CadastrarViagemFrame.class, ViagemTab.class);
-        tabbedPane.addTab("Viagens", null, viagemPanel, null);
-
-        // Aba de Destinos
-        JPanel destinoPanel = createTabPanel("Cadastrar Destino", "Gerenciar Destinos", 
-                                              CadastrarDestinoFrame.class, DestinoTab.class);
-        tabbedPane.addTab("Destinos", null, destinoPanel, null);
-
-        // Aba de Reservas
-        JPanel reservaPanel = createTabPanel("Cadastrar Reserva", "Gerenciar Reservas", 
-                                              CadastrarReservaFrame.class, ReservaTab.class);
-        tabbedPane.addTab("Reservas", null, reservaPanel, null);
-    }
-
-    private JPanel createTabPanel(String cadastrarText, String gerenciarText, 
-                                  Class<? extends JFrame> cadastrarFrameClass, 
-                                  Class<? extends JFrame> gerenciarFrameClass) {
-        JPanel panel = new JPanel();
-        panel.setBackground(new Color(0, 0, 49));
-        panel.setBorder(new EmptyBorder(200, 200, 200, 200));
-        panel.setLayout(null);
-
-        JButton btnCadastrar = new JButton(cadastrarText);
-        btnCadastrar.setBounds(66, 159, 395, 48);
-        btnCadastrar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    JFrame frame = cadastrarFrameClass.getDeclaredConstructor(JFrame.class).newInstance(MainFrame.this);
-                    frame.setVisible(true);
-                    setVisible(false);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-        panel.add(btnCadastrar);
-
-        JButton btnGerenciar = new JButton(gerenciarText);
-        btnGerenciar.setBounds(66, 234, 395, 48);
-        btnGerenciar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    JFrame frame = gerenciarFrameClass.getDeclaredConstructor().newInstance();
-                    frame.setVisible(true);
-                    setVisible(false);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-        panel.add(btnGerenciar);
-
-        return panel;
-    }
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -102,4 +28,176 @@ public class MainFrame extends JFrame {
             }
         });
     }
+
+    public MainFrame() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 947, 875);
+        contentPane = new JPanel();
+        contentPane.setBackground(new Color(0, 0, 49));
+        contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+        tabbedPane.setBounds(10, 10, 911, 815);
+        contentPane.add(tabbedPane);
+
+        //------------------------------------------------
+        // Aba de Administradores
+        //------------------------------------------------
+        JPanel adminPanel = new JPanel();
+        adminPanel.setLayout(null);
+        adminPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Admin", null, adminPanel, null);
+
+        JButton btnCadastrarAdministrador = new JButton("Cadastrar Administrador");
+        btnCadastrarAdministrador.setBounds(251, 254, 431, 58);
+        btnCadastrarAdministrador.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CadastrarAdministradorFrame(MainFrame.this).setVisible(true);
+                setVisible(false); 
+            }
+        });
+        adminPanel.add(btnCadastrarAdministrador);
+
+        JButton btnGerenciarAdministrador = new JButton("Gerenciar Administradores");
+        btnGerenciarAdministrador.setBounds(251, 325, 431, 58);
+        btnGerenciarAdministrador.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new AdministradorTab().setVisible(true);
+                setVisible(false); 
+            }
+        });
+        adminPanel.add(btnGerenciarAdministrador);
+
+        //------------------------------------------------
+        // Aba de Locais
+        //------------------------------------------------
+        JPanel localPanel = new JPanel();
+        localPanel.setLayout(null);
+        localPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Locais", null, localPanel, null);
+
+        JButton btnCadastrarLocal = new JButton("Cadastrar Local");
+        btnCadastrarLocal.setBounds(251, 254, 431, 58);
+        btnCadastrarLocal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CadastrarLocalFrame(MainFrame.this).setVisible(true);
+                setVisible(false);
+            }
+        });
+        localPanel.add(btnCadastrarLocal);
+
+        JButton btnGerenciarLocal = new JButton("Gerenciar Locais");
+        btnGerenciarLocal.setBounds(251, 325, 431, 58);
+        btnGerenciarLocal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new LocalTab().setVisible(true);
+                setVisible(false); 
+            }
+        });
+        localPanel.add(btnGerenciarLocal);
+
+        //------------------------------------------------
+        // Aba de Viagens
+        //------------------------------------------------
+        JPanel viagemPanel = new JPanel();
+        viagemPanel.setLayout(null);
+        viagemPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Viagens", null, viagemPanel, null);
+
+        JButton btnCadastrarViagem = new JButton("Cadastrar Viagem");
+        btnCadastrarViagem.setBounds(251, 254, 431, 58);
+        btnCadastrarViagem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CadastrarViagemFrame(MainFrame.this).setVisible(true);
+                setVisible(false); 
+            }
+        });
+        viagemPanel.add(btnCadastrarViagem);
+
+        JButton btnGerenciarViagem = new JButton("Gerenciar Viagens");
+        btnGerenciarViagem.setBounds(251, 325, 431, 58);
+        btnGerenciarViagem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ViagemTab().setVisible(true);
+                setVisible(false); 
+            }
+        });
+        viagemPanel.add(btnGerenciarViagem);
+
+        //------------------------------------------------
+        // Aba de Destinos
+        //------------------------------------------------
+        JPanel destinoPanel = new JPanel();
+        destinoPanel.setLayout(null);
+        destinoPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Destinos", null, destinoPanel, null);
+
+        JButton btnCadastrarDestino = new JButton("Cadastrar Destino");
+        btnCadastrarDestino.setBounds(251, 254, 431, 58);
+        btnCadastrarDestino.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CadastrarDestinoFrame(MainFrame.this).setVisible(true);
+                setVisible(false); 
+            }
+        });
+        destinoPanel.add(btnCadastrarDestino);
+
+        JButton btnGerenciarDestino = new JButton("Gerenciar Destinos");
+        btnGerenciarDestino.setBounds(251, 325, 431, 58);
+        btnGerenciarDestino.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new DestinoTab().setVisible(true);
+                setVisible(false); 
+            }
+        });
+        destinoPanel.add(btnGerenciarDestino);
+
+        //------------------------------------------------
+        // Aba de Reservas
+        //------------------------------------------------
+        JPanel reservaPanel = new JPanel();
+        reservaPanel.setLayout(null);
+        reservaPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Reservas", null, reservaPanel, null);
+
+        JButton btnCadastrarReserva = new JButton("Cadastrar Reserva");
+        btnCadastrarReserva.setBounds(251, 254, 431, 58);
+        btnCadastrarReserva.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new CadastrarReservaFrame(MainFrame.this).setVisible(true);
+                setVisible(false); 
+            }
+        });
+        reservaPanel.add(btnCadastrarReserva);
+
+        JButton btnGerenciarReserva = new JButton("Gerenciar Reservas");
+        btnGerenciarReserva.setBounds(251, 325, 431, 58);
+        btnGerenciarReserva.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ReservaTab().setVisible(true);
+                setVisible(false); 
+            }
+        });
+        reservaPanel.add(btnGerenciarReserva);
+
+        //------------------------------------------------
+        // Aba de Mapa
+        //------------------------------------------------
+        JPanel mapaPanel = new JPanel();
+        mapaPanel.setLayout(null);
+        mapaPanel.setBackground(new Color(0, 0, 49));
+        tabbedPane.addTab("Mapa", null, mapaPanel, null);
+
+        JButton btnAbrirMapa = new JButton("Abrir Mapa");
+        btnAbrirMapa.setBounds(251, 294, 431, 58);
+        btnAbrirMapa.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Map.main(new String[0]); 
+            }
+        });
+        mapaPanel.add(btnAbrirMapa);
+    }
 }
+

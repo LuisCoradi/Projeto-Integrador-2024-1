@@ -27,19 +27,6 @@ public class LocalTab extends JFrame {
     private JTextArea textArea;
     private LocalController localController = new LocalController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    LocalTab frame = new LocalTab();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     public LocalTab() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
@@ -53,7 +40,9 @@ public class LocalTab extends JFrame {
         tabbedPane.setBounds(10, 10, 911, 815);
         contentPane.add(tabbedPane);
 
+        //-------------------------------------------------------------------
         // Tab de Atualização
+        //-------------------------------------------------------------------
         JPanel atualizarPanel = new JPanel();
         atualizarPanel.setLayout(null);
         atualizarPanel.setBackground(new Color(0, 0, 49));
@@ -176,7 +165,9 @@ public class LocalTab extends JFrame {
             }
         });
 
+        //-------------------------------------------------------------------
         // Tab de Deleção
+        //-------------------------------------------------------------------
         JPanel deletarPanel = new JPanel();
         deletarPanel.setLayout(null);
         deletarPanel.setBackground(new Color(0, 0, 49));
@@ -249,7 +240,9 @@ public class LocalTab extends JFrame {
             }
         });
 
+        //-------------------------------------------------------------------
         // Tab de Listagem
+        //-------------------------------------------------------------------
         JPanel listarPanel = new JPanel();
         listarPanel.setLayout(null);
         listarPanel.setBackground(new Color(0, 0, 49));

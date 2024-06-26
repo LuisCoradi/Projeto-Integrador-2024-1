@@ -44,13 +44,14 @@ public class AdministradorTab extends JFrame {
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(null); // Usando layout absoluto
+        contentPane.setLayout(null);
 
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         tabbedPane.setBounds(10, 10, 911, 815);
         contentPane.add(tabbedPane);
-
+        // --------------------------------------------------------
         // Tab de Atualização
+        // --------------------------------------------------------
         JPanel atualizarPanel = new JPanel();
         atualizarPanel.setLayout(null);
         atualizarPanel.setBackground(new Color(0, 0, 49));
@@ -136,7 +137,10 @@ public class AdministradorTab extends JFrame {
             }
         });
 
+        // --------------------------------------------------------
         // Tab de Deleção
+        // --------------------------------------------------------
+        
         JPanel deletarPanel = new JPanel();
         deletarPanel.setLayout(null);
         deletarPanel.setBackground(new Color(0, 0, 49));
@@ -201,7 +205,6 @@ public class AdministradorTab extends JFrame {
                     return;
                 }
 
-                // Verificar se há locais associados ao administrador
                 if (!administrador.getLocais().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Não é possível deletar o administrador porque ele possui locais associados.", "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -217,7 +220,9 @@ public class AdministradorTab extends JFrame {
             }
         });
 
+        // --------------------------------------------------------
         // Tab de Listagem
+        // --------------------------------------------------------
         JPanel listarPanel = new JPanel();
         listarPanel.setLayout(null);
         listarPanel.setBackground(new Color(0, 0, 49));

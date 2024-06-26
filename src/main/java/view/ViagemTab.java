@@ -56,7 +56,9 @@ public class ViagemTab extends JFrame {
         tabbedPane.setBounds(10, 10, 911, 815);
         contentPane.add(tabbedPane);
 
+        //-------------------------------------------------------------------
         // Tab de Atualização
+        //-------------------------------------------------------------------
         JPanel atualizarPanel = new JPanel();
         atualizarPanel.setLayout(null);
         atualizarPanel.setBackground(new Color(0, 0, 49));

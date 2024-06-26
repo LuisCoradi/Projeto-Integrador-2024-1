@@ -21,18 +21,6 @@ public class CadastrarDestinoFrame extends JFrame {
     private JTextField regiaoField;
     private DestinoController destinoController = new DestinoController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CadastrarDestinoFrame frame = new CadastrarDestinoFrame(null);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public CadastrarDestinoFrame(JFrame parent) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

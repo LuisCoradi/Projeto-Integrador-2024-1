@@ -25,18 +25,6 @@ public class CadastrarReservaFrame extends JFrame {
     private JTextField localIdField;
     private ReservaController reservaController = new ReservaController();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    CadastrarReservaFrame frame = new CadastrarReservaFrame(null);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public CadastrarReservaFrame(JFrame parent) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -45,7 +33,7 @@ public class CadastrarReservaFrame extends JFrame {
         contentPane.setBackground(new Color(0, 0, 49));
         contentPane.setBorder(new EmptyBorder(200, 200, 200, 200));
         setContentPane(contentPane);
-        contentPane.setLayout(null); // Usando layout absoluto
+        contentPane.setLayout(null);
 
         JLabel lblDataReserva = new JLabel("Data da Reserva:");
         lblDataReserva.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -136,7 +124,7 @@ public class CadastrarReservaFrame extends JFrame {
                 if (parent != null) {
                     parent.setVisible(true);
                 }
-                dispose(); // Fecha a janela atual
+                dispose(); 
             }
         });
     }

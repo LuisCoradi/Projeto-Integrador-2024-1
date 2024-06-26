@@ -18,19 +18,6 @@ public class DeletarLocalFrame extends JFrame {
     private JTextArea detalhesTextArea;
     private LocalService localService = new LocalService();
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    DeletarLocalFrame frame = new DeletarLocalFrame(null);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     public DeletarLocalFrame(JFrame parent) {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 947, 875);
